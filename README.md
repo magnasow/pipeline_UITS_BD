@@ -21,4 +21,4 @@ Ce projet contient un pipeline Big Data complet pour l’ingestion, le nettoyage
 Nettoyer les données brutes issues de Kafka, les structurer, les diffuser vers PostgreSQL, MinIO et Kafka (topic nettoyé).
 
 ## 👩‍💻 Auteur
-Mariéta Sow – Master 2 IA – Data Engineering – UFR ST, UASZ
+Mariéta Sow – Master 2 IA – Data Engineering – DIT
