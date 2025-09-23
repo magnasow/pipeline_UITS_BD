@@ -131,12 +131,20 @@ services:
       AIRFLOW__CORE__EXECUTOR: "LocalExecutor"
       AIRFLOW__CORE__FERNET_KEY: "Y6JZngIfTbGuvaUPbJdBktb13HKGvNedFwRJ3fDbzPI="
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin123@postgres:5432/mydb
+      AIRFLOW__SMTP__SMTP_HOST: smtp.gmail.com
+      AIRFLOW__SMTP__SMTP_STARTTLS: "True"
+      AIRFLOW__SMTP__SMTP_SSL: "False"
+      AIRFLOW__SMTP__SMTP_USER: sowmarieta013@gmail.com
+      AIRFLOW__SMTP__SMTP_PASSWORD: ftzb sjon pjcq crui
+      AIRFLOW__SMTP__SMTP_PORT: 587
+      AIRFLOW__SMTP__SMTP_MAIL_FROM: sowmarieta013@gmail.com
     depends_on:
       - postgres
     ports:
       - "8084:8080"
     volumes:
       - airflow_logs:/opt/airflow/logs
+      - ./airflow/dags:/opt/airflow/dags
     command: ["webserver"]
     networks:
       - pipeline_net
@@ -151,8 +159,16 @@ services:
       AIRFLOW__CORE__EXECUTOR: "LocalExecutor"
       AIRFLOW__CORE__FERNET_KEY: "Y6JZngIfTbGuvaUPbJdBktb13HKGvNedFwRJ3fDbzPI="
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin123@postgres:5432/mydb
+      AIRFLOW__SMTP__SMTP_HOST: smtp.gmail.com
+      AIRFLOW__SMTP__SMTP_STARTTLS: "True"
+      AIRFLOW__SMTP__SMTP_SSL: "False"
+      AIRFLOW__SMTP__SMTP_USER: sowmarieta013@gmail.com
+      AIRFLOW__SMTP__SMTP_PASSWORD: ftzb sjon pjcq crui
+      AIRFLOW__SMTP__SMTP_PORT: 587
+      AIRFLOW__SMTP__SMTP_MAIL_FROM: sowmarieta013@gmail.com
     volumes:
       - airflow_logs:/opt/airflow/logs
+      - ./dags:/opt/airflow/dags
     command: scheduler
     networks:
       - pipeline_net
@@ -169,7 +185,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - "8085:8088"
+      - "8088:8088"
     volumes:
       - superset_data:/app/superset_home
     networks:
