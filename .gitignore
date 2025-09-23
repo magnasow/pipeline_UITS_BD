@@ -1,0 +1,11 @@
+# Environnements virtuels
+venv/
+
+# Dossiers Airflow générés
+airflow/
+
+# Fichiers temporaires
+__pycache__/
+*.log
+*.pyc
+.env
